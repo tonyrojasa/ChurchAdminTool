@@ -8,6 +8,7 @@ global.config = {
         src: {
             index: SRC_FOLDER + '/index.jade',
             assets: [SRC_FOLDER + '/assets/**/*', '!' + SRC_FOLDER + '/assets/images/**/*'],
+            bower: SRC_FOLDER + '/bower_components/**/*',
             images: SRC_FOLDER + '/assets/images/**/*',
             scripts: SRC_FOLDER + '/modules/**/*.js',
             styles: SRC_FOLDER + '/styles/app.scss',
@@ -24,6 +25,7 @@ global.config = {
                 scripts: BUILD_FOLDER,
                 images: BUILD_FOLDER + '/assets/images',
                 assets: BUILD_FOLDER + '/assets',
+                bower: BUILD_FOLDER + '/bower_components',
                 index: BUILD_FOLDER,
                 server: BUILD_FOLDER
             },
@@ -32,6 +34,7 @@ global.config = {
                 scripts: RELEASE_FOLDER,
                 images: RELEASE_FOLDER + '/assets/images',
                 assets: RELEASE_FOLDER + '/assets',
+                bower: BUILD_FOLDER + '/bower_components',
                 index: RELEASE_FOLDER,
                 server: RELEASE_FOLDER
             }
@@ -56,7 +59,7 @@ global.config = {
         }
     },
     ports: {
-        staticServer: 9090,
+        staticServer: 9191,
         livereloadServer: 35729
     }
 };
