@@ -1,11 +1,1 @@
-{
-  "generator-angulpify": {
-    "projectName": "ChurchAdminTool",
-    "coffee": false,
-    "jade": true,
-    "sass": true,
-    "bootstrap": true,
-    "uiBootstrap": true,
-    "uiRouter": true
-  }
-}
+{}

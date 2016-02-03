@@ -1,0 +1,34 @@
+<label>Search: <input ng-model="searchText"></label>
+<div class="table-responsive">
+<form editable-form name="tableform" onaftersave="saveTable()">
+  <table class="table table-striped table-hover">
+    <thead>
+      <th>Name</th>
+      <th>Display Name</th>
+      <th>Inum</th>
+      <th>Status</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="org in vm.orgs | filter:searchText">
+        <td><span editable-text="org.shortName"  e-focus-me="org.isFocused" onbeforesave="checkName($data)">{{ org.shortName || 'empty' }}</span></td>
+        <td><span editable-text="org.displayName">{{ org.displayName || 'empty' }}</span></td>
+        <td><span>{{ org.inum || '' }}</span></td>
+        <td>
+          <span editable-select="org.status" e-ng-options="s.value as s.text for s in vm.statuses">
+          <span ng-class="org.status == 'active' ? 'glyphicon glyphicon-ok-sign' : 'glyphicon glyphicon-remove-sign'"></span> {{org.status}}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- buttons -->
+    <div style="white-space: nowrap">
+      <button type="button" class="btn btn-default" ng-click="addOrg()" >Add</button>
+      <button type="submit" ng-show="tableform.$visible" ng-disabled="tableform.$waiting" class="btn btn-primary">save</button>
+      <button type="button" class="btn btn-default" ng-show="!tableform.$visible" ng-click="tableform.$show()">
+        edit
+      </button>
+      <button type="button" ng-show="tableform.$visible" ng-disabled="tableform.$waiting" ng-click="cancelChanges()" class="btn btn-default">cancel
+      </button>
+    </div>
+  </form>
+</div>
